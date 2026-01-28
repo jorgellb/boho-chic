@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { parse } from 'query-string';
 
 import Breadcrumbs from '../components/Breadcrumbs';
 import Layout from '../components/Layout/Layout';
@@ -11,8 +10,10 @@ import { supabase } from '../lib/supabase';
 import * as styles from './search.module.css';
 
 const SearchPage = (props) => {
-  const params = parse(props.location.search);
-  const searchQuery = params.q ? params.q : '';
+  // Usar URLSearchParams nativo en lugar de query-string
+  const searchQuery = typeof window !== 'undefined' 
+    ? new URLSearchParams(props.location.search).get('q') || ''
+    : '';
   
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
