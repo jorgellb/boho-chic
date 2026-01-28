@@ -62,7 +62,7 @@
     left: 0;
     right: 0;
     padding: 16px;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;
@@ -76,7 +76,7 @@
 .priceButton {
     width: 100%;
     padding: 14px 24px;
-    background: var(--standard-gold, #c9a050);
+    background: rgba(201, 160, 80, 0.85);
     color: white;
     border: none;
     border-radius: 4px;
@@ -86,6 +86,7 @@
     cursor: pointer;
     transition: all 0.2s ease;
     text-transform: uppercase;
+    backdrop-filter: blur(4px);
 }
 
 .priceButton:hover {

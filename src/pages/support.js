@@ -8,15 +8,16 @@ import Layout from '../components/Layout/Layout';
 import ThemeLink from '../components/ThemeLink';
 import Policy from '../components/Policy';
 import Container from '../components/Container';
+import Seo from '../components/Seo';
 
 const SupportPage = (props) => {
   const subpages = [
-    { title: 'Shipping', key: 'shipping' },
-    { title: 'Returns', key: 'returns' },
-    { title: 'Payments & Security', key: 'payments' },
-    { title: 'Terms & Conditions', key: 'terms' },
-    { title: 'Contact Us', key: 'contact' },
-    { title: 'Privacy Policy', key: 'policy' },
+    { title: 'Envíos', key: 'shipping' },
+    { title: 'Devoluciones', key: 'returns' },
+    { title: 'Pagos y Seguridad', key: 'payments' },
+    { title: 'Términos y Condiciones', key: 'terms' },
+    { title: 'Contacto', key: 'contact' },
+    { title: 'Política de Privacidad', key: 'policy' },
   ];
 
   const [current, setCurrent] = useState(subpages[4]);
@@ -29,19 +30,19 @@ const SupportPage = (props) => {
         tempElement = <Contact />;
         break;
       case 'policy':
-        tempElement = <Policy />;
+        tempElement = <Policy type="privacy" />;
         break;
       case 'shipping':
-        tempElement = <Policy />;
+        tempElement = <Policy type="shipping" />;
         break;
       case 'returns':
-        tempElement = <Policy />;
+        tempElement = <Policy type="returns" />;
         break;
       case 'payments':
-        tempElement = <Policy />;
+        tempElement = <Policy type="payments" />;
         break;
       case 'terms':
-        tempElement = <Policy />;
+        tempElement = <Policy type="terms" />;
         break;
       default:
         break;
@@ -57,7 +58,7 @@ const SupportPage = (props) => {
     if (props.location.hash !== '' && props.location.hash !== undefined) {
       const hash = props.location.hash.substring(1);
       const tempCurrent = subpages.filter((detail) => detail.key === hash)[0];
-      if (tempCurrent.key !== current.key) {
+      if (tempCurrent && tempCurrent.key !== current.key) {
         setCurrent(tempCurrent);
         window.scrollTo(0, 475);
       }
@@ -68,6 +69,12 @@ const SupportPage = (props) => {
 
   return (
     <Layout disablePaddingBottom>
+      <Seo
+        title={`${current.title} - Boho Chic Botas Cowboy`}
+        description="Información sobre envíos, devoluciones, pagos y políticas de Boho Chic, tu comparador de botas cowboy."
+        pathname="/support"
+        schemaType="WebPage"
+      />
       <div className={styles.root}>
         <Banner
           maxWidth={'650px'}
@@ -100,9 +107,8 @@ const SupportPage = (props) => {
               return (
                 <div
                   key={details.key}
-                  className={`${styles.content} ${
-                    current.key === details.key ? styles.show : styles.hide
-                  }`}
+                  className={`${styles.content} ${current.key === details.key ? styles.show : styles.hide
+                    }`}
                 >
                   {renderElement(details.key)}
                 </div>

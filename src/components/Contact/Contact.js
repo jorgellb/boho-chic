@@ -28,25 +28,27 @@ const Contact = (props) => {
   return (
     <div className={styles.root}>
       <div className={styles.section}>
-        <h4>Send Us A Message</h4>
+        <h4>Envíanos un Mensaje</h4>
         <p>
-          Our Customer Service team are here for all enquiries Monday to Friday,
-          9am - 5pm AEDT (Australian Eastern Daylight Savings Time).
+          Nuestro equipo de atención al cliente está disponible de lunes a viernes,
+          de 9:00 a 18:00 (hora peninsular española).
         </p>
-        <p>We look forward to hearing from you.</p>
-      </div>
-
-      <div className={styles.section}>
-        <h4>Phone</h4>
-        <p>+1 424 280 4971</p>
-        <p>Monday to Friday - 9am - 5pm AEDT</p>
+        <p>¡Estaremos encantados de ayudarte a encontrar las botas cowboy perfectas!</p>
       </div>
 
       <div className={styles.section}>
         <h4>Email</h4>
         <p>
-          You can email our Customer Service team at customerservice@example.com
-          or via the contact form below:
+          Puedes escribirnos a contacto@bohochic.es o utilizar el formulario a continuación:
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h4>Aviso Importante</h4>
+        <p>
+          Recuerda que Boho Chic es un comparador de precios. Para consultas sobre
+          pedidos, envíos o devoluciones, contacta directamente con la tienda donde
+          realizaste tu compra.
         </p>
       </div>
 
@@ -58,7 +60,7 @@ const Contact = (props) => {
               value={contactForm.name}
               handleChange={(id, e) => handleChange(id, e)}
               type={'text'}
-              labelName={'Full Name'}
+              labelName={'Nombre Completo'}
               required
             />
             <FormInputField
@@ -66,7 +68,7 @@ const Contact = (props) => {
               value={contactForm.phone}
               handleChange={(id, e) => handleChange(id, e)}
               type={'number'}
-              labelName={'Phone Number'}
+              labelName={'Teléfono'}
               required
             />
             <FormInputField
@@ -83,7 +85,7 @@ const Contact = (props) => {
                 value={contactForm.comment}
                 handleChange={(id, e) => handleChange(id, e)}
                 type={'textarea'}
-                labelName={'Comments / Questions'}
+                labelName={'Mensaje'}
                 required
               />
             </div>
@@ -93,7 +95,7 @@ const Contact = (props) => {
             level={'primary'}
             type={'buttonSubmit'}
           >
-            submit
+            Enviar
           </Button>
         </form>
       </div>

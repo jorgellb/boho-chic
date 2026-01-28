@@ -1,105 +1,242 @@
 import React from 'react';
 import * as styles from './Policy.module.css';
 
-const Policy = (props) => {
+const Policy = ({ type = 'privacy' }) => {
+  // Contenido de Política de Privacidad
+  const PrivacyContent = () => (
+    <>
+      <div className={styles.section}>
+        <h3>1. Información que Recopilamos</h3>
+        <p>
+          En Boho Chic (bohochic.es), respetamos tu privacidad. Como sitio de afiliados
+          especializado en botas cowboy, recopilamos información limitada cuando navegas
+          por nuestro catálogo de productos.
+        </p>
+        <p>
+          Podemos recopilar información básica como tu dirección IP, tipo de navegador,
+          páginas visitadas y tiempo de navegación. Esta información nos ayuda a mejorar
+          tu experiencia de búsqueda de botas cowboy.
+        </p>
+        <p>
+          <strong>Importante:</strong> No procesamos pagos ni almacenamos información de
+          tarjetas de crédito. Todas las compras se realizan directamente en las tiendas
+          de los vendedores afiliados.
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h3>2. Uso de Cookies</h3>
+        <p>
+          Utilizamos cookies para mejorar tu experiencia de navegación y para fines de
+          seguimiento de afiliados. Estas cookies nos permiten:
+        </p>
+        <p>
+          • Recordar tus preferencias de navegación<br />
+          • Analizar el tráfico del sitio para mejorar nuestro contenido<br />
+          • Gestionar nuestras relaciones con programas de afiliados
+        </p>
+        <p>
+          Puedes configurar tu navegador para rechazar cookies, aunque esto puede afectar
+          algunas funcionalidades del sitio.
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h3>3. Enlaces a Terceros</h3>
+        <p>
+          Nuestro sitio contiene enlaces a tiendas externas donde puedes comprar botas cowboy.
+          Al hacer clic en "Ver Oferta", serás redirigido al sitio del vendedor.
+        </p>
+        <p>
+          Cada tienda externa tiene su propia política de privacidad. Te recomendamos leer
+          las políticas de privacidad de cada vendedor antes de realizar una compra.
+        </p>
+        <p>
+          Boho Chic no es responsable de las prácticas de privacidad de sitios externos.
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h3>4. Tus Derechos</h3>
+        <p>
+          De acuerdo con el Reglamento General de Protección de Datos (RGPD), tienes derecho a:
+        </p>
+        <p>
+          • Acceder a tus datos personales<br />
+          • Rectificar datos inexactos<br />
+          • Solicitar la eliminación de tus datos<br />
+          • Oponerte al procesamiento de tus datos
+        </p>
+        <p>
+          Para ejercer estos derechos, contáctanos a través de nuestro formulario de contacto.
+        </p>
+      </div>
+    </>
+  );
+
+  // Contenido de Términos y Condiciones
+  const TermsContent = () => (
+    <>
+      <div className={styles.section}>
+        <h3>1. Sobre Boho Chic</h3>
+        <p>
+          Boho Chic (bohochic.es) es un sitio web de afiliados especializado en botas cowboy.
+          No vendemos productos directamente. Nuestro servicio consiste en comparar precios
+          y mostrarte las mejores ofertas de botas vaqueras disponibles en tiendas online.
+        </p>
+        <p>
+          Al hacer clic en "Ver Oferta", serás redirigido a la tienda del vendedor donde
+          podrás completar tu compra. Podemos recibir una comisión por las compras realizadas
+          a través de nuestros enlaces, sin coste adicional para ti.
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h3>2. Precios y Disponibilidad</h3>
+        <p>
+          Los precios mostrados en nuestro sitio son orientativos y pueden variar. El precio
+          final siempre será el indicado en la tienda del vendedor al momento de la compra.
+        </p>
+        <p>
+          No garantizamos la disponibilidad de los productos. El stock depende de cada vendedor
+          y puede agotarse sin previo aviso.
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h3>3. Responsabilidad</h3>
+        <p>
+          Boho Chic no es responsable de:
+        </p>
+        <p>
+          • La calidad de los productos vendidos por terceros<br />
+          • Problemas con envíos o devoluciones<br />
+          • Cambios de precio o disponibilidad<br />
+          • El contenido de sitios externos
+        </p>
+        <p>
+          Cualquier reclamación sobre productos debe dirigirse directamente al vendedor.
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h3>4. Propiedad Intelectual</h3>
+        <p>
+          Todo el contenido de bohochic.es, incluyendo textos, diseño y logotipos, está
+          protegido por derechos de autor. Queda prohibida su reproducción sin autorización.
+        </p>
+        <p>
+          Las imágenes de productos pertenecen a sus respectivos propietarios y se utilizan
+          con fines informativos.
+        </p>
+      </div>
+    </>
+  );
+
+  // Contenido de Envíos
+  const ShippingContent = () => (
+    <>
+      <div className={styles.section}>
+        <h3>Información sobre Envíos</h3>
+        <p>
+          En Boho Chic no realizamos envíos directamente. Somos un comparador de precios
+          de botas cowboy que te conecta con las mejores tiendas online.
+        </p>
+        <p>
+          Cada tienda afiliada tiene sus propias políticas de envío. Al hacer clic en
+          "Ver Oferta" y acceder a la tienda del vendedor, podrás consultar:
+        </p>
+        <p>
+          • Costes de envío<br />
+          • Tiempos de entrega<br />
+          • Países disponibles<br />
+          • Opciones de envío express
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h3>Consejo</h3>
+        <p>
+          Te recomendamos revisar las condiciones de envío de cada vendedor antes de
+          realizar tu compra. Algunas tiendas ofrecen envío gratuito a partir de cierto
+          importe o en promociones especiales.
+        </p>
+      </div>
+    </>
+  );
+
+  // Contenido de Devoluciones
+  const ReturnsContent = () => (
+    <>
+      <div className={styles.section}>
+        <h3>Política de Devoluciones</h3>
+        <p>
+          Las devoluciones de botas cowboy se gestionan directamente con la tienda donde
+          realizaste la compra. Cada vendedor tiene su propia política de devoluciones.
+        </p>
+        <p>
+          Generalmente, las tiendas online ofrecen un plazo de 14-30 días para devoluciones,
+          siempre que el producto esté sin usar y en su embalaje original.
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h3>¿Cómo hacer una devolución?</h3>
+        <p>
+          1. Contacta con el servicio de atención al cliente de la tienda donde compraste<br />
+          2. Solicita el número de devolución o etiqueta de envío<br />
+          3. Empaqueta las botas en su caja original<br />
+          4. Envía el paquete según las instrucciones del vendedor
+        </p>
+        <p>
+          <strong>Nota:</strong> Boho Chic no puede gestionar devoluciones ya que no somos
+          el vendedor del producto.
+        </p>
+      </div>
+    </>
+  );
+
+  // Contenido de Pagos
+  const PaymentsContent = () => (
+    <>
+      <div className={styles.section}>
+        <h3>Pagos y Seguridad</h3>
+        <p>
+          Boho Chic no procesa pagos. Todas las transacciones se realizan de forma segura
+          en las plataformas de los vendedores afiliados.
+        </p>
+        <p>
+          Las tiendas con las que trabajamos utilizan métodos de pago seguros como:
+        </p>
+        <p>
+          • Tarjetas de crédito/débito (Visa, Mastercard, American Express)<br />
+          • PayPal<br />
+          • Transferencia bancaria<br />
+          • Bizum (en tiendas españolas)
+        </p>
+      </div>
+
+      <div className={styles.section}>
+        <h3>Seguridad en tus Compras</h3>
+        <p>
+          Todos los vendedores afiliados utilizan conexiones seguras (HTTPS) y encriptación
+          SSL para proteger tu información de pago.
+        </p>
+        <p>
+          Te recomendamos verificar que la URL del vendedor muestre el candado de seguridad
+          antes de introducir tus datos de pago.
+        </p>
+      </div>
+    </>
+  );
+
   return (
     <div className={styles.root}>
-      <div className={styles.section}>
-        <h3>1. Lorem Ipsum</h3>
-        <p>
-          Delaware limited liability company (The Sydney) collects personal
-          information that you voluntarily provide when applying or registering
-          for an account with The Upside or making a purchase on The Upside
-          website; www.theupside.com (the Website).
-        </p>
-        <p>
-          This Privacy Policy (Privacy Policy) outlines how your information is
-          collected, used and disclosed when you access or use our Services as
-          defined in our Terms. This information is collected, used and
-          disclosed in accordance with the Privacy Act 1988 (Cth) (Privacy Act).{' '}
-        </p>
-        <p>
-          This Privacy Policy is incorporated by reference into our Terms. Any
-          capitalized terms not defined in this Policy are defined in the Terms.
-          You agree to comply with all Terms when accessing or using our
-          Services, including this Privacy Policy.
-        </p>
-      </div>
-
-      <div className={styles.section}>
-        <h3>2. Lorem Ipsum</h3>
-        <p>
-          Our Services, including but not limited to the registration of an
-          account with us or placing of an order, is not intended to be used by
-          children under the age of 13. When a visitor indicates an age under
-          13, the registration process for The Upside website cannot be
-          completed, and no personally identifying information is collected in
-          conjunction with that attempted submission except that we retain
-          e-mail addresses of such persons (and record of access attempts) for
-          purposes of denying registration. Otherwise, we do not knowingly
-          collect personally identifiable information from visitors under the
-          age of 13.
-        </p>
-        <p>
-          If you are under 18, any use of our Services must be with the
-          involvement of a parent or guardian. By accessing or using our
-          Website, you warrant and represent to us that you are over the age of
-          18 years and you have the right, authority and legal capacity to enter
-          into a legally binding agreement and to abide by this Privacy Policy.{' '}
-        </p>
-        <p>
-          The Upside collects, uses and discloses information regarding users
-          aged 13-18 in the same manner as it does for adults.{' '}
-        </p>
-      </div>
-
-      <div className={styles.section}>
-        <h3>3. Lorem Ipsum</h3>
-        <p>
-          You must only use our Services in accordance with this Privacy Policy
-          and any applicable law or regulations. You agree to refrain from
-          undertaking any prohibited acts as set out in this Clause 3. You must
-          not (or attempt to):{' '}
-        </p>
-        <p>
-          (a) interfere with or disrupt the use of Services or the website, in
-          any manner including but not limited to the servicers or networks that
-          host the website;{' '}
-        </p>
-        <p>(b) stalk, harass, threaten, intimidate or harm another; </p>
-        <p>
-          (c) pretend to be anyone, or any entity, you are not, you will not
-          impersonate or misrepresent yourself as another person (including
-          celebrities), entity, a The Upside employee, or a civic or government
-          leader, or otherwise misrepresent your affiliation with a person or
-          entity. The Upside reserves the right to reject or block any user
-          which could be deemed to be an impersonation or misrepresentation of
-          your identity, or a misappropriation of another person's name or
-          identity;{' '}
-        </p>
-        <p>
-          (d) engage in any copyright infringement or other intellectual
-          property infringement, or disclose any trade secret or confidential
-          information in violation of a confidentiality, employment, or
-          non-disclosure agreement or otherwise;{' '}
-        </p>
-        <p>
-          (e) use, distribute, reproduce or commercialize any content from the
-          Website or The Upside service except as permitted by this Policy, by
-          law, and with prior written agreement from The Upside;{' '}
-        </p>
-        <p>
-          (f) transmit any unsolicited advertising, promotional material or
-          other forms of solicitation in connection with your use of the Service
-          without the prior written agreement of The Upside;{' '}
-        </p>
-        <p>
-          (g) forge any TCP-IP packet header or any part of the header
-          information or otherwise putting Information in a header designed to
-          mislead recipients as to the origin of any content transmitted through
-          the Website ("spoofing";);
-        </p>
-      </div>
+      {type === 'privacy' && <PrivacyContent />}
+      {type === 'terms' && <TermsContent />}
+      {type === 'shipping' && <ShippingContent />}
+      {type === 'returns' && <ReturnsContent />}
+      {type === 'payments' && <PaymentsContent />}
     </div>
   );
 };
