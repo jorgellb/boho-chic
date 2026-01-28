@@ -4,53 +4,28 @@ import { isNumeric } from '../../helpers/general';
 
 const CurrencyFormatter = ({
   amount,
-  currency = 'USD',
-  appendZero = false,
-  useDollar = false,
+  currency = 'EUR',
+  appendZero = true,
 }) => {
   let displayAmount =
-    (typeof amount !== 'number' && parseFloat(amount?.replace('$', ''))) ||
+    (typeof amount !== 'number' && parseFloat(amount?.replace(/[€$]/g, ''))) ||
     amount;
-  /* Set language display */
-  const languageCode =
-    typeof window !== 'undefined'
-      ? window.navigator.language || 'en-AU'
-      : 'en-AU';
 
-  /* Format and return */
-  // isolate currency
-  const formatObject = new Intl.NumberFormat(languageCode, {
-    style: 'currency',
-    currency,
-  });
-  let symbol = '$';
-  let formattedPrice = formatObject.format(displayAmount);
-  if ('formatToParts' in formatObject) {
-    const formattedPriceParts = formatObject.formatToParts(displayAmount);
-    if (useDollar === false) symbol = formattedPriceParts[0].value;
-    const currencyValue = formattedPriceParts.find(
-      (obj) => obj.type === 'currency'
-    );
-    const decimalValue = formattedPriceParts.find(
-      (obj) => obj.type === 'fraction'
-    );
-    formattedPrice = formattedPrice.replace(currencyValue.value, '');
-    if (decimalValue && decimalValue.value === '00' && !appendZero) {
-      formattedPrice = formattedPrice.replace(`.${decimalValue.value}`, '');
-    }
-  } else {
-    // new Intl.NumberFormat is not supported; return amount with dollar sign
-    formattedPrice = amount;
+  if (!isNumeric(displayAmount)) {
+    return <span>Precio no disponible</span>;
   }
 
-  const priceComponent = (
-    <>
-      <span>{symbol}</span>
-      <span>{formattedPrice}</span>
-    </>
-  );
+  /* Format price for EUR in Spanish locale */
+  const formatObject = new Intl.NumberFormat('es-ES', {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: appendZero ? 2 : 0,
+    maximumFractionDigits: 2,
+  });
 
-  return isNumeric(amount) ? priceComponent : 'No price available';
+  const formattedPrice = formatObject.format(displayAmount);
+
+  return <span>{formattedPrice}</span>;
 };
 
 export default CurrencyFormatter;
