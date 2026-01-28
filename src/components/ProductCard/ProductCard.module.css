@@ -1,0 +1,142 @@
+.root {
+    width: 100%;
+}
+
+.detailsContainer {
+    margin-top: 16px;
+}
+
+.imageContainer {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.root img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.imageContainer:hover img {
+    transform: scale(1.03);
+}
+
+.productName {
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--standard-black);
+}
+
+.prices {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.prices span {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+}
+
+.salePrice {
+    color: var(--sale);
+}
+
+.originalPrice {
+    text-decoration: line-through;
+    color: var(--grey-placeholder);
+}
+
+.prices > span:first-child {
+    margin-right: 16px;
+}
+
+/* Botón VER PRECIO */
+.priceButtonContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.imageContainer:hover .priceButtonContainer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.priceButton {
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--standard-gold, #c9a050);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.priceButton:hover {
+    background: #b8903f;
+    transform: scale(1.02);
+}
+
+.priceButton:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 800px) {
+    .priceButtonContainer {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .imageContainer img {
+        height: 300px !important;
+    }
+
+    .productName {
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .prices span {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .priceButton {
+        padding: 12px 20px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .imageContainer img {
+        height: 220px !important;
+    }
+
+    .priceButtonContainer {
+        padding: 12px;
+    }
+
+    .priceButton {
+        padding: 10px 16px;
+        font-size: 11px;
+    }
+}

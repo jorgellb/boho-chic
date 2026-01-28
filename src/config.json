@@ -1,0 +1,62 @@
+{
+  "currencyList": [
+    { "value": "EUR", "label": "España (EUR €)" },
+    { "value": "USD", "label": "Estados Unidos (US $)" }
+  ],
+  "languageList": [
+    { "value": "spanish", "label": "Español" },
+    { "value": "english", "label": "English" }
+  ],
+  "social": {
+    "facebook": "#",
+    "instagram": "#",
+    "twitter": "#",
+    "youtube": "#"
+  },
+  "paymentOptions": {
+    "visa": false,
+    "mastercard": false,
+    "amex": false
+  },
+  "footerLinks": [
+    {
+      "subTitle": "Información",
+      "links": [
+        {
+          "text": "Sobre Nosotros",
+          "link": "/about"
+        },
+        {
+          "text": "Política de Privacidad",
+          "link": "/support#policy"
+        }
+      ]
+    },
+    {
+      "subTitle": "Ayuda",
+      "links": [
+        {
+          "text": "Preguntas Frecuentes",
+          "link": "/faq"
+        },
+        {
+          "text": "Contacto",
+          "link": "/support#contact"
+        }
+      ]
+    }
+  ],
+  "headerLinks": [
+    {
+      "menuLabel": "Productos",
+      "menuLink": "/shop",
+      "category": null
+    },
+    {
+      "menuLabel": "Sobre Nosotros",
+      "menuLink": "/about",
+      "category": null
+    }
+  ],
+  "filters": []
+}
