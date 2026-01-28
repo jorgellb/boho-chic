@@ -80,8 +80,6 @@ const LoginForm = ({ onLogin }) => {
 const ProductModal = ({ product, onClose, onSave, categories }) => {
   const [formData, setFormData] = useState({
     name: product?.name || '',
-    price: product?.price || '',
-    original_price: product?.original_price || '',
     description: product?.description || '',
     category: product?.category || '',
     affiliate_url: product?.affiliate_url || '',
@@ -132,8 +130,6 @@ const ProductModal = ({ product, onClose, onSave, categories }) => {
 
       const productData = {
         name: formData.name,
-        price: parseFloat(formData.price),
-        original_price: formData.original_price ? parseFloat(formData.original_price) : null,
         description: formData.description,
         category: formData.category,
         affiliate_url: formData.affiliate_url,
@@ -216,37 +212,8 @@ const ProductModal = ({ product, onClose, onSave, categories }) => {
                   className={styles.inputField}
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Ej: Auriculares Bluetooth Premium"
+                  placeholder="Ej: Botas Camperas de Mujer"
                   required
-                />
-              </div>
-
-              {/* Precio */}
-              <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>Precio *</label>
-                <input
-                  type="number"
-                  name="price"
-                  step="0.01"
-                  className={styles.inputField}
-                  value={formData.price}
-                  onChange={handleChange}
-                  placeholder="29.99"
-                  required
-                />
-              </div>
-
-              {/* Precio original (tachado) */}
-              <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>Precio original (opcional)</label>
-                <input
-                  type="number"
-                  name="original_price"
-                  step="0.01"
-                  className={styles.inputField}
-                  value={formData.original_price}
-                  onChange={handleChange}
-                  placeholder="49.99"
                 />
               </div>
 
@@ -259,7 +226,7 @@ const ProductModal = ({ product, onClose, onSave, categories }) => {
                   className={styles.inputField}
                   value={formData.category}
                   onChange={handleChange}
-                  placeholder="Electrónica"
+                  placeholder="Calzado"
                   list="categories"
                 />
                 <datalist id="categories">
@@ -353,15 +320,20 @@ const ProductModal = ({ product, onClose, onSave, categories }) => {
 const Dashboard = ({ user, onLogout }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [editingProduct, setEditingProduct] = useState(null);
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
   const [categories, setCategories] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [editingProduct, setEditingProduct] = useState(null);
-  const [toast, setToast] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
-  const itemsPerPage = 20;
+  const [toast, setToast] = useState(null);
+  const itemsPerPage = 10;
+
+  const showToast = (message, isError = false) => {
+    setToast({ message, isError });
+    setTimeout(() => setToast(null), 3000);
+  };
 
   // Cargar productos
   const loadProducts = async () => {
@@ -374,7 +346,6 @@ const Dashboard = ({ user, onLogout }) => {
       if (search) {
         query = query.ilike('name', `%${search}%`);
       }
-
       if (categoryFilter) {
         query = query.eq('category', categoryFilter);
       }
@@ -391,14 +362,14 @@ const Dashboard = ({ user, onLogout }) => {
       setProducts(data || []);
       setTotalCount(count || 0);
     } catch (err) {
-      console.error('Error loading products:', err);
-      showToast('Error al cargar productos', true);
+      showToast('Error cargando productos', true);
+      console.error(err);
     } finally {
       setLoading(false);
     }
   };
 
-  // Cargar categorías únicas
+  // Cargar categorías
   const loadCategories = async () => {
     try {
       const { data, error } = await supabase
@@ -409,7 +380,7 @@ const Dashboard = ({ user, onLogout }) => {
       if (error) throw error;
 
       const uniqueCategories = [...new Set(data.map(p => p.category).filter(Boolean))];
-      setCategories(uniqueCategories);
+      setCategories(uniqueCategories.sort());
     } catch (err) {
       console.error('Error loading categories:', err);
     }
@@ -417,12 +388,15 @@ const Dashboard = ({ user, onLogout }) => {
 
   useEffect(() => {
     loadProducts();
-    loadCategories();
   }, [search, categoryFilter, currentPage]);
 
-  const showToast = (message, isError = false) => {
-    setToast({ message, isError });
-    setTimeout(() => setToast(null), 3000);
+  useEffect(() => {
+    loadCategories();
+  }, []);
+
+  const handleEdit = (product) => {
+    setEditingProduct(product);
+    setShowModal(true);
   };
 
   const handleDelete = async (product) => {
@@ -443,14 +417,10 @@ const Dashboard = ({ user, onLogout }) => {
 
       showToast('Producto eliminado');
       loadProducts();
+      loadCategories();
     } catch (err) {
-      showToast('Error al eliminar: ' + err.message, true);
+      showToast('Error eliminando producto', true);
     }
-  };
-
-  const handleEdit = (product) => {
-    setEditingProduct(product);
-    setShowModal(true);
   };
 
   const handleSave = () => {
@@ -464,51 +434,37 @@ const Dashboard = ({ user, onLogout }) => {
   const totalPages = Math.ceil(totalCount / itemsPerPage);
 
   return (
-    <div className={styles.dashboardContainer}>
-      {/* Sidebar */}
-      <aside className={styles.sidebar}>
-        <div className={styles.sidebarLogo}>
-          🛍️ <span>Admin</span>
-        </div>
-        
-        <nav className={styles.sidebarNav}>
-          <button className={`${styles.navItem} ${styles.navItemActive}`}>
-            📦 <span>Productos</span>
-          </button>
-          <a 
-            href="/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className={styles.navItem}
-          >
-            🌐 <span>Ver Tienda</span>
-          </a>
-        </nav>
-        
-        <button className={`${styles.navItem} ${styles.logoutButton}`} onClick={onLogout}>
-          🚪 <span>Salir</span>
-        </button>
-      </aside>
-
-      {/* Main Content */}
-      <main className={styles.mainContent}>
-        <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>Productos</h1>
+    <div className={styles.dashboard}>
+      {/* Header */}
+      <header className={styles.header}>
+        <div className={styles.headerContent}>
+          <h1 className={styles.headerTitle}>🛍️ Panel de Administración</h1>
           <div className={styles.headerActions}>
-            <button 
-              className={styles.primaryButton}
-              onClick={() => {
-                setEditingProduct(null);
-                setShowModal(true);
-              }}
-            >
-              ➕ Nuevo Producto
+            <span className={styles.userEmail}>{user.email}</span>
+            <button className={styles.logoutButton} onClick={onLogout}>
+              Cerrar Sesión
             </button>
           </div>
         </div>
+      </header>
+
+      {/* Main */}
+      <main className={styles.main}>
+        {/* Actions */}
+        <div className={styles.actionsContainer}>
+          <button 
+            className={styles.primaryButton}
+            onClick={() => {
+              setEditingProduct(null);
+              setShowModal(true);
+            }}
+          >
+            + Nuevo Producto
+          </button>
+        </div>
 
         {/* Stats */}
-        <div className={styles.statsGrid}>
+        <div className={styles.statsContainer}>
           <div className={styles.statCard}>
             <div className={styles.statLabel}>Total Productos</div>
             <div className={styles.statValue}>{totalCount}</div>
@@ -571,7 +527,6 @@ const Dashboard = ({ user, onLogout }) => {
                 <tr>
                   <th>Imagen</th>
                   <th>Producto</th>
-                  <th>Precio</th>
                   <th>Categoría</th>
                   <th>Estado</th>
                   <th>Acciones</th>
@@ -592,19 +547,6 @@ const Dashboard = ({ user, onLogout }) => {
                       <div className={styles.productCategory}>
                         {product.tags?.slice(0, 3).join(', ')}
                       </div>
-                    </td>
-                    <td className={styles.priceCell}>
-                      €{product.price?.toFixed(2)}
-                      {product.original_price && (
-                        <span style={{ 
-                          textDecoration: 'line-through', 
-                          color: 'rgba(255,255,255,0.4)',
-                          marginLeft: '8px',
-                          fontSize: '12px'
-                        }}>
-                          €{product.original_price?.toFixed(2)}
-                        </span>
-                      )}
                     </td>
                     <td>{product.category || '-'}</td>
                     <td>
