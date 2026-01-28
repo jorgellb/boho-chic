@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import Header from '../Header';
 import Footer from '../Footer';
+import CookieConsent from '../CookieConsent';
 import * as styles from './Layout.module.css';
 
 // CSS not modular here to provide global styles
@@ -29,13 +30,13 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
 
       <Header />
       <main
-        className={`${styles.main} ${
-          disablePaddingBottom === true ? styles.disablePaddingBottom : ''
-        }`}
+        className={`${styles.main} ${disablePaddingBottom === true ? styles.disablePaddingBottom : ''
+          }`}
       >
         {children}
       </main>
       <Footer />
+      <CookieConsent />
     </>
   );
 };

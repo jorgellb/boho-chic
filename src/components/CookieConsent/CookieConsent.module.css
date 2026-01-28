@@ -1,0 +1,98 @@
+.root {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--standard-white);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 24px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-out;
+}
+
+.visible {
+    transform: translateY(0);
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.textContainer h4 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.textContainer p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--standard-dark-grey);
+}
+
+.textContainer a {
+    text-decoration: underline;
+    color: var(--standard-black);
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.acceptButton {
+    background-color: var(--standard-black);
+    color: var(--standard-white);
+    border: 1px solid var(--standard-black);
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.acceptButton:hover {
+    background-color: var(--standard-dark-grey);
+    border-color: var(--standard-dark-grey);
+}
+
+.rejectButton {
+    background-color: transparent;
+    color: var(--standard-black);
+    border: 1px solid var(--standard-black);
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rejectButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+    .content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .textContainer {
+        max-width: 70%;
+    }
+
+    .buttonContainer {
+        flex-shrink: 0;
+    }
+}
