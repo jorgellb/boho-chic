@@ -22,23 +22,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    padding: 48px 0px 48px 0px;
+    padding: 24px 0px;
     margin: 0 auto;
-}
-
-.headerMessageContainer {
-    background-color: var(--bg-grey);
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.headerMessageContainer span {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
-    color: var(--grey-crumb);
 }
 
 .root .linkContainers {
@@ -244,7 +229,7 @@
     }
 
     .header {
-        padding: 24px 8px 24px 8px;
+        padding: 16px 8px;
         margin: 0px 8px;
     }
 
@@ -254,7 +239,38 @@
     }
 
     .searchContainer h4 {
-        font-size: 32px;
-        line-height: 42px;
+        font-size: 24px;
+        line-height: 32px;
     }    
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 12px 4px;
+        margin: 0px 4px;
+    }
+
+    .searchContainer {
+        padding: 0px 16px;
+    }
+
+    .searchContainer h4 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .suggestion {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .burgerIcon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .iconContainer svg {
+        width: 18px;
+        height: 18px;
+    }
 }
