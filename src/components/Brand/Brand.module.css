@@ -4,9 +4,27 @@
     cursor: pointer;
 }
 
+.logo {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #8B4513;
+    margin: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
 @media (max-width: 800px) {
-    .root svg {
-        width: 90px;
-        height: 16.67px;
+    .logo {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo {
+        font-size: 14px;
+        letter-spacing: 0.5px;
     }
 }
