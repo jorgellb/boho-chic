@@ -6,6 +6,7 @@ import Highlight from '../components/Highlight';
 import Layout from '../components/Layout/Layout';
 import ProductCardGrid from '../components/ProductCardGrid';
 import Quote from '../components/Quote';
+import Seo from '../components/Seo';
 import Title from '../components/Title';
 import { supabase } from '../lib/supabase';
 
@@ -54,33 +55,41 @@ const IndexPage = () => {
 
   return (
     <Layout disablePaddingBottom>
+      <Seo
+        title="Botas Cowboy - Las Mejores Ofertas Online"
+        description="Encuentra las mejores botas cowboy al mejor precio. Comparamos ofertas de las mejores marcas para hombre y mujer. ¡Ahorra tiempo y dinero!"
+        pathname="/"
+        schemaType="WebPage"
+        products={featuredProducts}
+      />
+
       {/* Hero Container */}
       <Hero
         maxWidth={'500px'}
         image={'/banner1.png'}
-        title={'Las Mejores Ofertas'}
-        subtitle={'Productos seleccionados con los mejores precios'}
-        ctaText={'ver productos'}
+        title={'Botas Cowboy Originales'}
+        subtitle={'Las mejores ofertas en botas vaqueras para hombre y mujer'}
+        ctaText={'ver catálogo'}
         ctaAction={goToShop}
       />
 
       {/* Message Container */}
       <div className={styles.messageContainer}>
         <p>
-          Encuentra los <span className={styles.gold}>mejores productos</span> al mejor precio.
+          Encuentra las mejores <span className={styles.gold}>botas cowboy</span> al mejor precio.
         </p>
         <p>
-          Comparamos precios para que tú <span className={styles.gold}>ahorres más</span>
+          Comparamos ofertas de las mejores <span className={styles.gold}>marcas</span> para ti.
         </p>
       </div>
 
       {/* Featured Products */}
       <div className={styles.newArrivalsContainer}>
         <Container>
-          <Title name={'Productos Destacados'} link={'/shop'} textLink={'ver todos'} />
+          <Title name={'Botas Cowboy Destacadas'} link={'/shop'} textLink={'ver todas'} />
           {loading ? (
             <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
-              Cargando productos...
+              Cargando botas cowboy...
             </div>
           ) : featuredProducts.length > 0 ? (
             <ProductCardGrid
@@ -92,7 +101,7 @@ const IndexPage = () => {
             />
           ) : (
             <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
-              <p>No hay productos aún.</p>
+              <p>No hay botas disponibles aún.</p>
               <p style={{ fontSize: '14px', marginTop: '8px' }}>
                 Añade productos desde el <a href="/admin" style={{ color: '#c9a050' }}>panel de administración</a>
               </p>
@@ -106,12 +115,12 @@ const IndexPage = () => {
         <Container size={'large'} fullMobile>
           <Highlight
             image={'/highlight.png'}
-            altImage={'productos destacados'}
+            altImage={'botas cowboy destacadas'}
             miniImage={'/highlightmin.png'}
-            miniImageAlt={'mini imagen'}
-            title={'Calidad Garantizada'}
-            description={`Seleccionamos solo los mejores productos de vendedores verificados para garantizar tu satisfacción.`}
-            textLink={'explorar'}
+            miniImageAlt={'botas vaqueras'}
+            title={'Botas Cowboy Auténticas'}
+            description={'Seleccionamos botas cowboy de las mejores marcas y te mostramos dónde encontrarlas al mejor precio. Estilo western garantizado.'}
+            textLink={'ver ofertas'}
             link={'/shop'}
           />
         </Container>
@@ -120,9 +129,9 @@ const IndexPage = () => {
       {/* Quote */}
       <Quote
         bgColor={'var(--standard-light-grey)'}
-        title={'Nuestra Promesa'}
+        title={'Nuestra Especialidad'}
         quote={
-          '"Buscamos los mejores precios en toda la web para que tú no tengas que hacerlo. Ahorra tiempo y dinero con nuestras ofertas seleccionadas."'
+          '"Somos expertos en encontrar las mejores ofertas en botas cowboy. Te ahorramos tiempo comparando precios para que tú solo elijas tu estilo vaquero favorito."'
         }
       />
 
@@ -130,7 +139,7 @@ const IndexPage = () => {
       {newProducts.length > 0 && (
         <div className={styles.newArrivalsContainer}>
           <Container>
-            <Title name={'Recién Añadidos'} link={'/shop'} textLink={'ver todos'} />
+            <Title name={'Nuevas Botas Cowboy'} link={'/shop'} textLink={'ver todas'} />
             <ProductCardGrid
               spacing={true}
               showSlider

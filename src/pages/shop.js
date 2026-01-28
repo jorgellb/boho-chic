@@ -9,6 +9,7 @@ import Icon from '../components/Icons/Icon';
 import Layout from '../components/Layout';
 import ProductCardGrid from '../components/ProductCardGrid';
 import Button from '../components/Button';
+import Seo from '../components/Seo';
 import { supabase } from '../lib/supabase';
 
 const ShopPage = (props) => {
@@ -88,29 +89,39 @@ const ShopPage = (props) => {
 
   const totalPages = Math.ceil(totalCount / itemsPerPage);
 
+  const breadcrumbs = [
+    { link: '/', label: 'Inicio' },
+    { label: selectedCategory || 'Botas Cowboy' },
+  ];
+
   return (
     <Layout>
+      <Seo
+        title="Catálogo Botas Cowboy - Ofertas Exclusivas"
+        description="Explora nuestra selección de botas cowboy. Compara precios y encuentra la mejor oferta en botas vaqueras para hombre y mujer."
+        pathname="/shop"
+        schemaType="CollectionPage"
+        products={products}
+        breadcrumbs={breadcrumbs}
+      />
       <div className={styles.root}>
         <Container size={'large'} spacing={'min'}>
           <div className={styles.breadcrumbContainer}>
             <Breadcrumbs
-              crumbs={[
-                { link: '/', label: 'Inicio' },
-                { label: selectedCategory || 'Todos los productos' },
-              ]}
+              crumbs={breadcrumbs}
             />
           </div>
         </Container>
         <Banner
           maxWidth={'650px'}
-          name={selectedCategory || 'Todos los Productos'}
+          name={selectedCategory || 'Catálogo Botas Cowboy'}
           subtitle={
-            'Descubre las mejores ofertas y productos seleccionados. Haz clic en "Ver Precio" para encontrar el mejor precio disponible.'
+            'Explora nuestra selección de botas cowboy para hombre y mujer. Haz clic en "Ver Oferta" para ir directamente a la mejor oferta disponible.'
           }
         />
         <Container size={'large'} spacing={'min'}>
           <div className={styles.metaContainer}>
-            <span className={styles.itemCount}>{totalCount} productos</span>
+            <span className={styles.itemCount}>{totalCount} botas cowboy</span>
             <div className={styles.controllerContainer}>
               <div
                 className={styles.iconContainer}
@@ -126,13 +137,13 @@ const ShopPage = (props) => {
           {/* Filtro de categorías */}
           {showFilter && (
             <div className={styles.chipsContainer}>
-              <Chip 
-                name={'Todas'} 
+              <Chip
+                name={'Todas'}
                 close={false}
               />
               {categories.map(cat => (
-                <Chip 
-                  key={cat} 
+                <Chip
+                  key={cat}
                   name={cat}
                   close={false}
                 />
@@ -141,22 +152,22 @@ const ShopPage = (props) => {
           )}
 
           <div className={styles.productContainer}>
-            <span className={styles.mobileItemCount}>{totalCount} productos</span>
+            <span className={styles.mobileItemCount}>{totalCount} botas cowboy</span>
             {loading ? (
-              <div style={{ 
-                textAlign: 'center', 
+              <div style={{
+                textAlign: 'center',
                 padding: '60px 20px',
                 color: '#666'
               }}>
-                Cargando productos...
+                Cargando botas cowboy...
               </div>
             ) : products.length === 0 ? (
-              <div style={{ 
-                textAlign: 'center', 
+              <div style={{
+                textAlign: 'center',
                 padding: '60px 20px',
                 color: '#666'
               }}>
-                No hay productos disponibles
+                No hay botas cowboy disponibles
               </div>
             ) : (
               <ProductCardGrid data={products} />
@@ -169,7 +180,7 @@ const ShopPage = (props) => {
               <span>{Math.min(currentPage * itemsPerPage, totalCount)} de {totalCount}</span>
               <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
                 {currentPage > 1 && (
-                  <Button 
+                  <Button
                     level={'secondary'}
                     onClick={() => setCurrentPage(p => p - 1)}
                   >
@@ -177,7 +188,7 @@ const ShopPage = (props) => {
                   </Button>
                 )}
                 {currentPage < totalPages && (
-                  <Button 
+                  <Button
                     level={'secondary'}
                     onClick={() => setCurrentPage(p => p + 1)}
                   >

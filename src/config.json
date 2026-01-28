@@ -1,11 +1,23 @@
 {
   "currencyList": [
-    { "value": "EUR", "label": "España (EUR €)" },
-    { "value": "USD", "label": "Estados Unidos (US $)" }
+    {
+      "value": "EUR",
+      "label": "España (EUR €)"
+    },
+    {
+      "value": "USD",
+      "label": "Estados Unidos (US $)"
+    }
   ],
   "languageList": [
-    { "value": "spanish", "label": "Español" },
-    { "value": "english", "label": "English" }
+    {
+      "value": "spanish",
+      "label": "Español"
+    },
+    {
+      "value": "english",
+      "label": "English"
+    }
   ],
   "social": {
     "facebook": "#",
@@ -48,7 +60,7 @@
   ],
   "headerLinks": [
     {
-      "menuLabel": "Productos",
+      "menuLabel": "Botas Cowboy",
       "menuLink": "/shop",
       "category": null
     },

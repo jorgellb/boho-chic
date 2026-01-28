@@ -4,13 +4,15 @@ import Container from '../components/Container';
 import Hero from '../components/Hero';
 import ThemeLink from '../components/ThemeLink';
 import Layout from '../components/Layout/Layout';
+import Seo from '../components/Seo';
 
 import * as styles from './about.module.css';
 import { toOptimizedImage } from '../helpers/general';
+
 const AboutPage = (props) => {
-  let historyRef = useRef();
+  let missionRef = useRef();
   let valuesRef = useRef();
-  let sustainabilityRef = useRef();
+  let commitmentRef = useRef();
 
   const handleScroll = (elementReference) => {
     if (elementReference) {
@@ -23,103 +25,102 @@ const AboutPage = (props) => {
 
   return (
     <Layout disablePaddingBottom>
+      <Seo
+        title="Sobre Nosotros - Especialistas en Botas Cowboy"
+        description="Somos expertos en encontrar las mejores ofertas en botas cowboy. Conoce nuestra misión de ayudarte a encontrar botas vaqueras al mejor precio."
+        pathname="/about"
+        schemaType="AboutPage"
+        breadcrumbs={[
+          { link: '/', label: 'Inicio' },
+          { label: 'Sobre Nosotros' },
+        ]}
+      />
       <div className={styles.root}>
         {/* Hero Container */}
         <Hero
           maxWidth={'900px'}
           image={'/about.png'}
-          title={`Sydney \n A British brand since 1860`}
+          title={`Tu Tienda de\nBotas Cowboy`}
         />
 
         <div className={styles.navContainer}>
-          <ThemeLink onClick={() => handleScroll(historyRef)} to={'#history'}>
-            History
+          <ThemeLink onClick={() => handleScroll(missionRef)} to={'#mission'}>
+            Nuestra Misión
           </ThemeLink>
           <ThemeLink onClick={() => handleScroll(valuesRef)} to={'#values'}>
-            Values
+            Valores
           </ThemeLink>
           <ThemeLink
-            onClick={() => handleScroll(sustainabilityRef)}
-            to={'#sustainability'}
+            onClick={() => handleScroll(commitmentRef)}
+            to={'#commitment'}
           >
-            Sustainability
+            Compromiso
           </ThemeLink>
         </div>
 
         <Container size={'large'} spacing={'min'}>
-          <div className={styles.detailContainer} ref={historyRef}>
+          <div className={styles.detailContainer} ref={missionRef}>
             <p>
-              Founded in 1860, Sydney is an innovative British brand with a
-              contemporary edge. We make timeless everyday luxury clothing.
+              Somos especialistas en botas cowboy y nos dedicamos a encontrar
+              las mejores ofertas del mercado para ti. Comparamos precios de
+              las principales tiendas y marcas para que tú solo tengas que elegir
+              el estilo que más te gusta.
             </p>
             <br />
             <br />
             <p>
-              We created some of the world's first T-shirts and spent decades
-              perfecting the feel of the cotton. Today we are the only brand
-              that makes T-shirts in its own factory in the UK. And we do this
-              in the same factory we have occupied since 1937.
+              Nuestra pasión por el estilo western nos impulsa a buscar
+              las botas cowboy más auténticas y de mejor calidad. Ya sea que
+              busques botas vaqueras para hombre o mujer, aquí encontrarás
+              la mejor selección al mejor precio.
             </p>
           </div>
         </Container>
 
         <div className={styles.imageContainer}>
-          <img alt={'shirt brand'} src={toOptimizedImage('/about1.png')}></img>
+          <img alt={'botas cowboy calidad'} src={toOptimizedImage('/about1.png')}></img>
         </div>
 
         <Container size={'large'} spacing={'min'}>
           <div className={styles.content}>
-            <h3>Our Values</h3>
+            <h3>Nuestros Valores</h3>
             <div ref={valuesRef}>
               <p>
-                Sunspel produced some of the world's earliest T-shirts. In the
-                late 1800s the business made luxury tunics and undershirts from
-                lightweight Sea Island cotton for export to the Far East and
-                other warm climates. While these garments initially had silk
-                buttoned plackets, these were removed in the early 1900s and
-                replaced with simple bound necks to reduce manufacturing costs -
-                creating the T-shirt. We've supplied the world as the T-shirt
-                has evolved from underwear to outerwear, from symbol of youthful
-                rebellion to everyday wardrobe staple, and we've spent decades
-                refining its every last aspect.
+                Creemos en la transparencia y en ofrecer siempre el mejor valor
+                a nuestros visitantes. No vendemos directamente, sino que te
+                conectamos con las mejores ofertas de botas cowboy que hemos
+                encontrado en toda la web.
               </p>
               <ol>
-                <li>Be an ecowear</li>
-                <li>Sophisticated and not mass-produced</li>
-                <li>Only natural materials</li>
+                <li>Transparencia en cada oferta</li>
+                <li>Selección cuidadosa de productos de calidad</li>
+                <li>Compromiso con el ahorro de nuestros usuarios</li>
               </ol>
-              <img alt={'founder'} src={toOptimizedImage('/about2.png')}></img>
+              <img alt={'botas cowboy estilo'} src={toOptimizedImage('/about2.png')}></img>
             </div>
-            <h3>Sustainability</h3>
-            <div id={'#sustainability'} ref={sustainabilityRef}>
+            <h3>Nuestro Compromiso</h3>
+            <div id={'#commitment'} ref={commitmentRef}>
               <p>
-                Our founder, Thomas Hill, had both an eye for quality and a
-                desire to innovate. As well as using the finest fibres such as
-                Sea Island cotton, cashmere and silk, he invented his own
-                fabrics. Sunspel continues this commitment to innovation today
-                and our unique fabrics include: Q100 Sea Island cotton, Q82
-                Supima cotton, Q75 warp knit mesh cotton and Q14 warp knit
-                cellular cotton. The technology behind these fabrics remains
-                unchanged today and all Sunspel products use the finest cottons,
-                wools and fibres.
+                Nos comprometemos a actualizar constantemente nuestra selección
+                de botas cowboy para ofrecerte siempre las mejores ofertas
+                disponibles. Cada producto que mostramos ha sido verificado
+                para garantizar su calidad y autenticidad.
               </p>
               <p>
-                Made in Long Eaton, England and crafted from our luxurious long
-                staple Supima cotton for unparalleled softness, comfort and
-                durability, the Sunspel T-shirt has a classic fit and only the
-                most essential details.{' '}
+                Ya sea que busques botas cowboy clásicas, botas western modernas
+                o botas vaqueras con diseños únicos, nuestro objetivo es
+                ahorrarte tiempo y dinero en tu búsqueda.
               </p>
               <p>
-                With over 100 years spent perfecting fabric, fit and style, the
-                Sunspel Classic T-shirt is recognised as the finest in the
-                world.
+                Gracias por confiar en nosotros como tu guía para encontrar
+                las botas cowboy perfectas.
               </p>
             </div>
           </div>
         </Container>
 
         <div className={styles.imageContainer}>
-          <img alt={'shirt backwards'} src={toOptimizedImage('/about3.png')}></img>
+          <img alt={'botas cowboy colección'} src={toOptimizedImage('/about3.png')}></img>
         </div>
       </div>
     </Layout>
