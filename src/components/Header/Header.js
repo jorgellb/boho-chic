@@ -22,11 +22,10 @@ const Header = (prop) => {
   const [search, setSearch] = useState('');
 
   const searchRef = createRef();
-  const bannerMessage = 'Las mejores ofertas seleccionadas para ti';
   const searchSuggestions = [
-    'Auriculares',
-    'Smartphones',
-    'Accesorios',
+    'Botas',
+    'Cowboy',
+    'Mujer',
   ];
 
   const handleHover = (navObject) => {
@@ -75,9 +74,6 @@ const Header = (prop) => {
 
   return (
     <div className={styles.root}>
-      <div className={styles.headerMessageContainer}>
-        <span>{bannerMessage}</span>
-      </div>
       <Container size={'large'} spacing={'min'}>
         {/* header container */}
         <div className={styles.header}>
@@ -187,7 +183,7 @@ const Header = (prop) => {
       <div className={styles.mobileMenuContainer}>
         <Drawer
           hideCross
-          top={'98px'}
+          top={'66px'}
           isReverse
           visible={mobileMenu}
           close={() => setMobileMenu(false)}
