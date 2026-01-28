@@ -8,7 +8,7 @@ const Policy = ({ type = 'privacy' }) => {
       <div className={styles.section}>
         <h3>1. Información que Recopilamos</h3>
         <p>
-          En Boho Chic (bohochic.es), respetamos tu privacidad. Como sitio de afiliados
+          En Pactando con la Moda (pactandoconlamoda.com), respetamos tu privacidad. Como sitio de afiliados
           especializado en botas cowboy, recopilamos información limitada cuando navegas
           por nuestro catálogo de productos.
         </p>
@@ -52,7 +52,7 @@ const Policy = ({ type = 'privacy' }) => {
           las políticas de privacidad de cada vendedor antes de realizar una compra.
         </p>
         <p>
-          Boho Chic no es responsable de las prácticas de privacidad de sitios externos.
+          Pactando con la Moda no es responsable de las prácticas de privacidad de sitios externos.
         </p>
       </div>
 
@@ -78,9 +78,9 @@ const Policy = ({ type = 'privacy' }) => {
   const TermsContent = () => (
     <>
       <div className={styles.section}>
-        <h3>1. Sobre Boho Chic</h3>
+        <h3>1. Sobre Pactando con la Moda</h3>
         <p>
-          Boho Chic (bohochic.es) es un sitio web de afiliados especializado en botas cowboy.
+          Pactando con la Moda (pactandoconlamoda.com) es un sitio web de afiliados especializado en botas cowboy.
           No vendemos productos directamente. Nuestro servicio consiste en comparar precios
           y mostrarte las mejores ofertas de botas vaqueras disponibles en tiendas online.
         </p>
@@ -106,7 +106,7 @@ const Policy = ({ type = 'privacy' }) => {
       <div className={styles.section}>
         <h3>3. Responsabilidad</h3>
         <p>
-          Boho Chic no es responsable de:
+          Pactando con la Moda no es responsable de:
         </p>
         <p>
           • La calidad de los productos vendidos por terceros<br />
@@ -122,7 +122,7 @@ const Policy = ({ type = 'privacy' }) => {
       <div className={styles.section}>
         <h3>4. Propiedad Intelectual</h3>
         <p>
-          Todo el contenido de bohochic.es, incluyendo textos, diseño y logotipos, está
+          Todo el contenido de pactandoconlamoda.com, incluyendo textos, diseño y logotipos, está
           protegido por derechos de autor. Queda prohibida su reproducción sin autorización.
         </p>
         <p>
@@ -139,7 +139,7 @@ const Policy = ({ type = 'privacy' }) => {
       <div className={styles.section}>
         <h3>Información sobre Envíos</h3>
         <p>
-          En Boho Chic no realizamos envíos directamente. Somos un comparador de precios
+          En Pactando con la Moda no realizamos envíos directamente. Somos un comparador de precios
           de botas cowboy que te conecta con las mejores tiendas online.
         </p>
         <p>
@@ -189,7 +189,7 @@ const Policy = ({ type = 'privacy' }) => {
           4. Envía el paquete según las instrucciones del vendedor
         </p>
         <p>
-          <strong>Nota:</strong> Boho Chic no puede gestionar devoluciones ya que no somos
+          <strong>Nota:</strong> Pactando con la Moda no puede gestionar devoluciones ya que no somos
           el vendedor del producto.
         </p>
       </div>
@@ -202,7 +202,7 @@ const Policy = ({ type = 'privacy' }) => {
       <div className={styles.section}>
         <h3>Pagos y Seguridad</h3>
         <p>
-          Boho Chic no procesa pagos. Todas las transacciones se realizan de forma segura
+          Pactando con la Moda no procesa pagos. Todas las transacciones se realizan de forma segura
           en las plataformas de los vendedores afiliados.
         </p>
         <p>

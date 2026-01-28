@@ -39,14 +39,14 @@ const Contact = (props) => {
       <div className={styles.section}>
         <h4>Email</h4>
         <p>
-          Puedes escribirnos a contacto@bohochic.es o utilizar el formulario a continuación:
+          Puedes escribirnos a contacto@pactandoconlamoda.com o utilizar el formulario a continuación:
         </p>
       </div>
 
       <div className={styles.section}>
         <h4>Aviso Importante</h4>
         <p>
-          Recuerda que Boho Chic es un comparador de precios. Para consultas sobre
+          Recuerda que Pactando con la Moda es un comparador de precios. Para consultas sobre
           pedidos, envíos o devoluciones, contacta directamente con la tienda donde
           realizaste tu compra.
         </p>

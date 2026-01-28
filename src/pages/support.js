@@ -70,8 +70,8 @@ const SupportPage = (props) => {
   return (
     <Layout disablePaddingBottom>
       <Seo
-        title={`${current.title} - Boho Chic Botas Cowboy`}
-        description="Información sobre envíos, devoluciones, pagos y políticas de Boho Chic, tu comparador de botas cowboy."
+        title={`${current.title} - Pactando con la Moda`}
+        description="Información sobre envíos, devoluciones, pagos y políticas de Pactando con la Moda, tu comparador de botas cowboy."
         pathname="/support"
         schemaType="WebPage"
       />

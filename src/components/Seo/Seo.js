@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 const Seo = ({
-    title = 'Boho Chic - Botas Cowboy | Las Mejores Ofertas',
+    title = 'Pactando con la Moda - Botas Cowboy | Las Mejores Ofertas',
     description = 'Encuentra las mejores botas cowboy al mejor precio. Comparamos ofertas de las mejores marcas para hombre y mujer. ¡Ahorra tiempo y dinero!',
     pathname = '',
     article = false,
@@ -11,8 +11,8 @@ const Seo = ({
     products = [],
     breadcrumbs = [],
 }) => {
-    const siteUrl = 'https://bohochic.es';
-    const siteName = 'Boho Chic - Botas Cowboy';
+    const siteUrl = 'https://pactandoconlamoda.com';
+    const siteName = 'Pactando con la Moda';
     const url = `${siteUrl}${pathname}`;
     const imageUrl = `${siteUrl}${image}`;
 

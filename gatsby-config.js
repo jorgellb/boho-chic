@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Boho Chic - Botas Cowboy | Las Mejores Ofertas',
-    siteUrl: 'https://bohochic.es',
+    title: 'Pactando con la Moda - Botas Cowboy | Las Mejores Ofertas',
+    siteUrl: 'https://pactandoconlamoda.com',
     description: 'Encuentra las mejores botas cowboy al mejor precio. Comparamos ofertas de las mejores marcas para ti.',
-    author: 'Boho Chic',
+    author: 'Pactando con la Moda',
   },
   plugins: [],
 };

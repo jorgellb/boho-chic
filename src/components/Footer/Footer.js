@@ -135,7 +135,7 @@ const Footer = (prop) => {
                 )}
               </div>
               <span>
-                © {new Date().getFullYear()} Boho Chic - Botas Cowboy. Todos los derechos reservados.
+                © {new Date().getFullYear()} Pactando con la Moda. Todos los derechos reservados.
               </span>
             </div>
           </div>
