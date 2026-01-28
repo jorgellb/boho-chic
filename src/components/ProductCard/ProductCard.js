@@ -1,14 +1,11 @@
 import React from 'react';
 import * as styles from './ProductCard.module.css';
-import CurrencyFormatter from '../CurrencyFormatter';
 
 const ProductCard = (props) => {
   const {
     image,
     imageAlt,
     name,
-    price,
-    originalPrice,
     affiliateUrl,
     height = 580,
   } = props;
@@ -33,7 +30,7 @@ const ProductCard = (props) => {
           alt={imageAlt || name}
           loading="lazy"
         />
-        {/* Botón VER PRECIO superpuesto */}
+        {/* Botón VER OFERTA superpuesto */}
         <div className={styles.priceButtonContainer}>
           <button 
             className={styles.priceButton}
@@ -42,22 +39,12 @@ const ProductCard = (props) => {
               handleClick();
             }}
           >
-            VER PRECIO
+            VER OFERTA
           </button>
         </div>
       </div>
       <div className={styles.detailsContainer}>
         <span className={styles.productName}>{name}</span>
-        <div className={styles.prices}>
-          <span className={`${originalPrice !== undefined ? styles.salePrice : ''}`}>
-            <CurrencyFormatter amount={price}></CurrencyFormatter>
-          </span>
-          {originalPrice && (
-            <span className={styles.originalPrice}>
-              <CurrencyFormatter amount={originalPrice}></CurrencyFormatter>
-            </span>
-          )}
-        </div>
       </div>
     </div>
   );
