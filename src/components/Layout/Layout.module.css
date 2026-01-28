@@ -1,5 +1,5 @@
 .main {
-    padding-top: 152px;
+    padding-top: 90px;
     padding-bottom: 150px;
 }
 
@@ -9,6 +9,12 @@
 
 @media (max-width: 800px) {
     .main {
-        padding-top: 100px;
+        padding-top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        padding-top: 60px;
     }
 }
