@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import AttributeGrid from '../components/AttributeGrid';
 import Container from '../components/Container';
 import Hero from '../components/Hero';
 import Highlight from '../components/Highlight';
@@ -142,8 +141,6 @@ const IndexPage = () => {
           </Container>
         </div>
       )}
-
-      <AttributeGrid />
     </Layout>
   );
 };
