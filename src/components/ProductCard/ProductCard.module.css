@@ -108,7 +108,8 @@
 
 @media (max-width: 600px) {
     .imageContainer img {
-        height: 300px !important;
+        height: auto !important;
+        aspect-ratio: 3/4;
     }
 
     .productName {
@@ -130,7 +131,8 @@
 
 @media (max-width: 400px) {
     .imageContainer img {
-        height: 220px !important;
+        height: auto !important;
+        aspect-ratio: 3/4;
     }
 
     .priceButtonContainer {
