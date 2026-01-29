@@ -117,7 +117,28 @@
         margin-top: -16px;
     }
 
-    .breadcrumbContainer > div {
+    .breadcrumbContainer>div {
         display: none;
+    }
+}
+
+.paginationContainer {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+    .paginationContainer {
+        width: 100%;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .paginationContainer button {
+        width: 100% !important;
+        min-width: 100% !important;
     }
 }

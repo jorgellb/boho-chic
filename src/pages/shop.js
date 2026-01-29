@@ -178,7 +178,7 @@ const ShopPage = (props) => {
           {totalPages > 1 && (
             <div className={styles.loadMoreContainer}>
               <span>{Math.min(currentPage * itemsPerPage, totalCount)} de {totalCount}</span>
-              <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
+              <div className={styles.paginationContainer}>
                 {currentPage > 1 && (
                   <Button
                     level={'secondary'}
